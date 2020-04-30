@@ -1,0 +1,79 @@
+import java.util.*;
+public class TRArational{
+ 
+public static int rational(int a, int b)
+{
+ int divisor, dividend, t;
+
+ if(a == 0)
+  return 1;
+
+ if(b > a){
+  dividend = b;
+  divisor = a;
+ }
+ else{
+  dividend = a;
+  divisor = b;
+ }
+
+ while(dividend % divisor != 0)
+ {
+  t = dividend % divisor;
+  dividend = divisor;
+  divisor = t;
+ }
+ return divisor;
+}
+
+public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+
+ char c1, c2, c3;
+ int n, N1, N2, D1, D2, num, den, numT, denT, f;
+ n = sc.nextInt();
+
+ for (int i = 1; i <= n; i++)
+ {
+   N1 = sc.nextInt();
+   c1 = sc.next().charAt(0);
+   D1 = sc.nextInt();
+   c2 = sc.next().charAt(0);
+   N2 = sc.nextInt();
+   c3 = sc.next().charAt(0);
+   D2 = sc.nextInt();
+   
+  if(c2 == '+'){
+   num = ((N1 * D2) + (N2 * D1));
+   den = (D1 * D2);
+  }
+  else if(c2 == '-'){
+   num = ((N1 * D2) - (N2 * D1));
+   den = (D1 * D2);
+  }
+  else if(c2 == '*'){
+   num = (N1 * N2);
+   den = (D1 * D2);
+  }
+  else{
+   num = (N1 * D2);
+   den = (N2 * D1);
+  }
+
+  f = rational(num, den);
+  numT = num / f; 
+  denT = den / f;
+
+  if(numT > 0 && denT > 0){
+   System.out.printf("%d/%d = %d/%d\n", num, den, numT, denT);
+  }
+  else{
+   if(denT < 0){
+    denT = -denT;
+    numT = -numT;
+   }
+   System.out.printf("%d/%d = %d/%d\n", num, den, numT, denT);
+  }
+ }
+}
+}
