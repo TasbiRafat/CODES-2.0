@@ -1,0 +1,34 @@
+public class Solution {
+public static void main (String [] args){
+     //LCM is the smallest positive number that is perfectly divisible by both the number
+     
+     int n1 = 2 , n2 =3 , lcm = 0;
+     lcm = (n1 > n2) ? n1 : n2;
+     while(true) {
+     if (lcm % n1 == 0 && lcm % n2 == 0){
+     System.out.println(lcm);
+     break;
+     }
+     ++lcm;
+     }
+}
+}
+
+//Notes:
+The value of a variable often depends on whether a particular boolean expression is or is not true and on nothing else. 
+For instance one common operation is setting the value of a variable to the maximum of two quantities. In Java you might write
+
+if (a > b) {
+  max = a;
+}
+else {
+  max = b;
+}
+Setting a single variable to one of two states based on a single condition is such a common use of if-else that a shortcut has been devised for it, 
+the conditional operator, ?:. Using the conditional operator you can rewrite the above example in a single line like this:
+
+max = (a > b) ? a : b;
+
+(a > b) ? a : b; is an expression which returns one of two values, a or b. The condition, (a > b), is tested. If it is true the first value, a, is returned. 
+If it is false, the second value, b, is returned. Whichever value is returned is dependent on the conditional test, a > b. 
+The condition can be any expression which returns a boolean value.
